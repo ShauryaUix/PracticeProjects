@@ -1,0 +1,54 @@
+.watch-wrapper {
+    height: 200px;
+    width: 200px;
+
+    border: 2px solid;
+
+    margin: auto;
+
+    position: relative;
+    top: 10rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+
+
+
+.timer {
+    text-align: center;
+
+    position: relative;
+    top: 5px;
+
+    font-size: 20px;
+}
+
+.options {
+    text-align: center;
+    position: relative;
+    top: 8px;
+
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+}
+
+
+.reset {
+    cursor: pointer;
+
+    height: 30px;
+    width: 60px;
+}
+
+.resume {
+    cursor: pointer;
+
+    height: 30px;
+    width: 60px;
+}
