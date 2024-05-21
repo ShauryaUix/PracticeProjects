@@ -1,19 +1,49 @@
-import React, { useState } from "react";
-import "./App.css";
-
+// App.js
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Signup from "./components/Signup";
 import Signin from "./components/Signin";
+import Landing from "./components/Landing";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+import ProtectedRouteForSign from "./components/ProtectedRouteForSign";
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/signin" element={<Signin isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoutes>
+              <HomePage />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <ProtectedRouteForSign>
+              <Signup />
+            </ProtectedRouteForSign>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <ProtectedRouteForSign>
+              <Signin />
+            </ProtectedRouteForSign>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <ProtectedRouteForSign>
+              <Landing />
+            </ProtectedRouteForSign>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

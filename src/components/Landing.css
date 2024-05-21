@@ -1,0 +1,21 @@
+.landing-nav{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+.landing-sign {
+    height: 35px;
+    width: 75px;
+    border: 0.5px solid;
+    border-radius: 15px;
+    cursor:  pointer;
+}
+
+.landing-content {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 56px;
+    margin: 50px;
+}

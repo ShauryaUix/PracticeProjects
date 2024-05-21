@@ -1,43 +1,36 @@
-.homepage-container{
+.homepage-container {
     height: 100vh;
-
     background: linear-gradient(to top right, #08aeea 0%, #b721ff 100%);
     font-family: open sans, arial, helvetica neue, sans-serif;
-
 }
 
 
 
-.heading{
-
+.heading {
     height: 100px;
-
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
     background-color: #000000ac;
     color: white;
-
     height: 60px;
 }
 
 
-.buttons{
+.buttons {
     display: flex;
-     gap: 20px;
+    gap: 20px;
 }
 
 
-.homepage-content{
+.homepage-content {
     display: flex;
     justify-content: center;
-     
     position: relative;
     top: 8rem;
 }
 
-.logout-button{
+.logout-button {
     background-color: #4caf50;
     color: white;
     padding: 14px 20px;

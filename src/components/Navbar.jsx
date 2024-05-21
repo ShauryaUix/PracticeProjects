@@ -1,27 +1,22 @@
-import React from 'react'
-import {Link} from "react-router-dom"
-const Navbar = ({isLoggedIn,setIsLoggedIn}) => {
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
+const Navbar = () => {
+  const navigate = useNavigate();
 
-const handleLogout=()=>{
-     setIsLoggedIn(false);
-}
+  const handleLogout = () => {
+    localStorage.setItem("isLoggedIn", false);
+    navigate("/");
+  };
 
-console.log(isLoggedIn);
   return (
-    <nav className='heading'>
-    <span>Home Page </span>
-   {!isLoggedIn ?(
-   <div className='buttons'>
-    <Link to="/signup">
-    <button className='signup-button'>Sign Up</button>
-    </Link>
+    <nav className="heading">
+      <span>Home Page </span>
+      <button className="logout-button" onClick={handleLogout}>
+        Log Out
+      </button>
+    </nav>
+  );
+};
 
-   <Link to="/signin">
-    <button className='signup-button'>Sign In</button>
-    </Link>
-    </div> ):(<button className='logout-button' onClick={handleLogout}>Log Out</button>)}
-   </nav>
-)}
-
-export default Navbar
+export default Navbar;

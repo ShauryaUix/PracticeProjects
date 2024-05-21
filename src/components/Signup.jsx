@@ -1,48 +1,36 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../components/Signup.css";
+import {useDataFromLocal}  from "../components/CustomHooks";
+import EmailAndPassword from "./EmailAndPassword";
+import { Link } from "react-router-dom";
+
 const Signup = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [formData,setFormData]= useState({})
 
   const navigate = useNavigate();
+  const existingData=useDataFromLocal();
 
   const handleinput = (e) => {
-    const id = e.target.id;
-
-    if (id === "name") {
-      setName(e.target.value);
-    } else if (id === "email") {
-      setEmail(e.target.value);
-    } else if (id === "password") {
-      setPassword(e.target.value);
-    } else if (id === "confirmPassword") {
-      setConfirmPassword(e.target.value);
-    }
+    const {id,value} = e.target;
+       setFormData({...formData,[id]:value})
   };
+
+
   const handlesubmit = (e) => {
     e.preventDefault();
-    const existingDataString = localStorage.getItem("userData");
-    const existingData = existingDataString
-      ? JSON.parse(existingDataString)
-      : [];
 
     const userData = {
-      name: name,
-      email: email,
-      password: password,
-      confirmPassword: confirmPassword,
+      name: formData.name,
+      email: formData.email,
+      password: formData.password,
+      confirmPassword: formData.confirmPassword,
     };
     const newData = existingData.concat(userData);
     localStorage.setItem("userData", JSON.stringify(newData));
 
-    setName("");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-    navigate("/");
+      setFormData({})
+    navigate("/signin");
   };
   return (
     <div className="signup-container">
@@ -56,40 +44,18 @@ const Signup = () => {
               <label>Name</label>
               <input
                 type="text"
-                value={name}
                 id="name"
                 onChange={(e) => handleinput(e)}
                 required
               ></input>
             </div>
 
-            <div className="form-content">
-              <label>Email</label>
-              <input
-                type="email"
-                value={email}
-                id="email"
-                onChange={(e) => handleinput(e)}
-                required
-              ></input>
-            </div>
-
-            <div className="form-content">
-              <label>Password</label>
-              <input
-                type="password"
-                value={password}
-                id="password"
-                onChange={(e) => handleinput(e)}
-                required
-              ></input>
-            </div>
+           <EmailAndPassword handleinput={handleinput}/>
 
             <div className="form-content">
               <label>Confirm Password</label>
               <input
                 type="password"
-                value={confirmPassword}
                 id="confirmPassword"
                 onChange={(e) => handleinput(e)}
                 required
@@ -98,6 +64,7 @@ const Signup = () => {
             <button className="signup-button" type="submit">
               Sign Up
             </button>
+            Already a Member? <Link to="/signin">Log In</Link>
           </form>
         </div>
       </div>

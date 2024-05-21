@@ -1,15 +1,15 @@
-import React from 'react'
-import "../components/HomePage.css"
-import Navbar from './Navbar'
+import React from "react";
+import "../components/HomePage.css";
+import Navbar from "./Navbar";
 
-const HomePage = ({isLoggedIn,setIsLoggedIn}) => {
- console.log(isLoggedIn)
+const HomePage = () => {
+
   return (
-    <div className='homepage-container'>
-   <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
-     <h1 className='homepage-content'>Hello World</h1>
-   </div>
-  )
-}
+    <div className="homepage-container">
+      <Navbar/>
+      <h1 className="homepage-content">Hello World</h1>
+    </div>
+  );
+};
 
-export default HomePage
+export default HomePage;
