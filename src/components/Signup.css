@@ -1,0 +1,56 @@
+.form-body{
+    height: 100vh;
+    width: 100wh;
+    background: linear-gradient(to right, #2c3e50, #bdc3c7);
+}
+
+.register-nav{
+    display: flex;
+    justify-content: center;
+    background-color: #000000ac;
+    color: white;
+
+    height: 40px;
+}
+
+.register-heading{
+    margin: auto;
+}
+
+.form{
+    background: white;
+
+    display: flex;
+     flex-direction: column;
+
+     justify-content: center;
+     align-items: center;
+     gap: 20px;
+
+     border-radius: 5px;
+
+     width: 550px;
+     margin: 20px auto;
+      padding: 20px; 
+     
+
+}
+
+.form-content{
+     display: flex; 
+    flex-direction: column;
+    gap: 10px;
+     justify-content: center;
+
+    text-align: left;
+}
+
+.signup-button{
+    height: 30px;
+    width: 100px;
+   
+    border: 0.5px solid ;
+   border-radius:20px;
+
+    cursor: pointer;
+}
