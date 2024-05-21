@@ -23,9 +23,9 @@ const Signin = ({ isLoggedIn, setIsLoggedIn }) => {
 
     if (userDataString !== null) {
       const userData = JSON.parse(userDataString);
-      const { email: storedemail, password: storedpassword } = userData;
+      const user = userData.find(user => user.email === email && user.password === password);
 
-      if (email === storedemail && password === storedpassword) {
+      if (user) {
         setIsLoggedIn(true);
         console.log(isLoggedIn);
         navigate("/");
@@ -36,38 +36,41 @@ const Signin = ({ isLoggedIn, setIsLoggedIn }) => {
     setPassword("");
   };
   return (
-    <div className="form-body">
-      <nav className="register-nav">
-        <h3 className="register-heading">Login</h3>
-      </nav>
-      <form className="form" onSubmit={handlesubmit}>
-        <div className="form-content">
-          <label>Email</label>
-          <input
-            type="email"
-            value={email}
-            id="email"
-            onChange={(e) => handleinput(e)}
-            required
-          ></input>
-        </div>
+    <div className="signup-container">
+    <div className="signup-wrapper">
+      <div className="signup-heading">
+        <h2 className="title">Log In</h2>
+      </div>
+      <div className="form-container">
+        <form onSubmit={handlesubmit}>
+          <div className="form-content">
+            <label>Email</label>
+            <input
+              type="email"
+              value={email}
+              id="email"
+              onChange={(e) => handleinput(e)}
+              required
+            ></input>
+          </div>
 
-        <div className="form-content">
-          <label>Password</label>
-          <input
-            type="password"
-            value={password}
-            id="password"
-            onChange={(e) => handleinput(e)}
-            required
-          ></input>
-        </div>
-
-        <button className="signup-button" type="submit">
-          Sign In
-        </button>
-      </form>
+          <div className="form-content">
+            <label>Password</label>
+            <input
+              type="password"
+              value={password}
+              id="password"
+              onChange={(e) => handleinput(e)}
+              required
+            ></input>
+          </div>
+          <button className="signup-button" type="submit">
+            Sign In
+          </button>
+        </form>
+      </div>
     </div>
+  </div>
   );
 };
 

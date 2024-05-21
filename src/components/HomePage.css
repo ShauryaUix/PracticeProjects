@@ -1,7 +1,8 @@
 .homepage-container{
     height: 100vh;
 
-    background: linear-gradient(to right, #2c3e50, #bdc3c7);
+    background: linear-gradient(to top right, #08aeea 0%, #b721ff 100%);
+    font-family: open sans, arial, helvetica neue, sans-serif;
 
 }
 
@@ -34,4 +35,16 @@
      
     position: relative;
     top: 8rem;
+}
+
+.logout-button{
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
 }

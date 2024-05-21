@@ -20,7 +20,7 @@ console.log(isLoggedIn);
    <Link to="/signin">
     <button className='signup-button'>Sign In</button>
     </Link>
-    </div> ):(<button className='signup-button' onClick={handleLogout}>Log Out</button>)}
+    </div> ):(<button className='logout-button' onClick={handleLogout}>Log Out</button>)}
    </nav>
 )}
 

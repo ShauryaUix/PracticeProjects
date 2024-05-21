@@ -14,14 +14,11 @@ const Signup = () => {
 
     if (id === "name") {
       setName(e.target.value);
-    }
-    else if (id === "email") {
+    } else if (id === "email") {
       setEmail(e.target.value);
-    }
-    else if (id === "password") {
+    } else if (id === "password") {
       setPassword(e.target.value);
-    }
-    else if (id === "confirmPassword") {
+    } else if (id === "confirmPassword") {
       setConfirmPassword(e.target.value);
     }
   };
@@ -38,7 +35,7 @@ const Signup = () => {
       password: password,
       confirmPassword: confirmPassword,
     };
-const newData= existingData.concat(userData)
+    const newData = existingData.concat(userData);
     localStorage.setItem("userData", JSON.stringify(newData));
 
     setName("");
@@ -48,58 +45,62 @@ const newData= existingData.concat(userData)
     navigate("/");
   };
   return (
-    <div className="form-body">
-      <nav className="register-nav">
-        <h3 className="register-heading">Register</h3>
-      </nav>
-      <form className="form" onSubmit={handlesubmit}>
-        <div className="form-content">
-          <label>Name</label>
-          <input
-            type="text"
-            value={name}
-            id="name"
-            onChange={(e) => handleinput(e)}
-            required
-          ></input>
+    <div className="signup-container">
+      <div className="signup-wrapper">
+        <div className="signup-heading">
+          <h2 className="title">Register</h2>
         </div>
+        <div className="form-container">
+          <form onSubmit={handlesubmit}>
+            <div className="form-content">
+              <label>Name</label>
+              <input
+                type="text"
+                value={name}
+                id="name"
+                onChange={(e) => handleinput(e)}
+                required
+              ></input>
+            </div>
 
-        <div className="form-content">
-          <label>Email</label>
-          <input
-            type="email"
-            value={email}
-            id="email"
-            onChange={(e) => handleinput(e)}
-            required
-          ></input>
-        </div>
+            <div className="form-content">
+              <label>Email</label>
+              <input
+                type="email"
+                value={email}
+                id="email"
+                onChange={(e) => handleinput(e)}
+                required
+              ></input>
+            </div>
 
-        <div className="form-content">
-          <label>Password</label>
-          <input
-            type="password"
-            value={password}
-            id="password"
-            onChange={(e) => handleinput(e)}
-            required
-          ></input>
-        </div>
+            <div className="form-content">
+              <label>Password</label>
+              <input
+                type="password"
+                value={password}
+                id="password"
+                onChange={(e) => handleinput(e)}
+                required
+              ></input>
+            </div>
 
-        <div className="form-content">
-          <label>Confirm Password</label>
-          <input
-            type="password"
-            value={confirmPassword}
-            id="confirmPassword"
-            onChange={(e) => handleinput(e)}
-            required
-          ></input>
+            <div className="form-content">
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                value={confirmPassword}
+                id="confirmPassword"
+                onChange={(e) => handleinput(e)}
+                required
+              ></input>
+            </div>
+            <button className="signup-button" type="submit">
+              Sign Up
+            </button>
+          </form>
         </div>
-        <button className="signup-button" type="submit">
-          Signup
-        </button>
-      </form>
+      </div>
     </div>
   );
 };
