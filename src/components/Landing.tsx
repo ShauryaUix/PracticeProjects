@@ -1,14 +1,18 @@
 import React from "react";
 import "../components/Landing.css";
 import { useNavigate } from "react-router-dom";
-const Landing = () => {
-  const naviagte = useNavigate();
+
+const Landing: React.FC = () => {
+  const navigate = useNavigate();
+
   const handleSignUp = () => {
-    naviagte("/signup");
+    navigate("/signup");
   };
+
   const handleSignIn = () => {
-    naviagte("/signin");
+    navigate("/signin");
   };
+
   return (
     <div>
       <nav className="landing-nav">

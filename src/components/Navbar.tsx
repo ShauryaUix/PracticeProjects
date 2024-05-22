@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar:React.FC = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.setItem("isLoggedIn", false);
+    localStorage.setItem("isLoggedIn", "false");
     navigate("/");
   };
 

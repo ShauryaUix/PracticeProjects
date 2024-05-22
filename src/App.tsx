@@ -1,4 +1,3 @@
-// App.js
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
@@ -6,42 +5,41 @@ import Signup from "./components/Signup";
 import Signin from "./components/Signin";
 import Landing from "./components/Landing";
 import ProtectedRoutes from "./components/ProtectedRoutes";
-import ProtectedRouteForSign from "./components/ProtectedRouteForSign";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route
-          path="/home"
+          path="/"
           element={
             <ProtectedRoutes>
-              <HomePage />
+              <Landing />
             </ProtectedRoutes>
           }
         />
         <Route
           path="/signup"
           element={
-            <ProtectedRouteForSign>
+            <ProtectedRoutes>
               <Signup />
-            </ProtectedRouteForSign>
+            </ProtectedRoutes>
           }
         />
         <Route
           path="/signin"
           element={
-            <ProtectedRouteForSign>
+            <ProtectedRoutes>
               <Signin />
-            </ProtectedRouteForSign>
+            </ProtectedRoutes>
           }
         />
         <Route
-          path="/"
+          path="/home"
           element={
-            <ProtectedRouteForSign>
-              <Landing />
-            </ProtectedRouteForSign>
+            <ProtectedRoutes>
+              <HomePage />
+            </ProtectedRoutes>
           }
         />
       </Routes>
